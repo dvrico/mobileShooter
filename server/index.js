@@ -22,6 +22,11 @@ if (!isProd) {
   });
 }
 
+// Catchall - redirect to app base
+app.get('*', function(req, res){
+  res.sendfile(publicPath + '/index.html');
+});
+
 // It is important to catch any errors from the proxy or the
 // server will crash. An example of this is connecting to the
 // server when webpack is bundling

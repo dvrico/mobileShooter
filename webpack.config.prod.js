@@ -22,7 +22,10 @@ module.exports =
         // Common vendor packages
         vendor: [
             'jquery', 
-            'underscore'
+            'underscore',
+            'ampersand-router',
+            'ampersand-view',
+            'ampersand-model'
         ]
     },
     
@@ -42,6 +45,11 @@ module.exports =
                 loader: 'babel?optional[]=runtime'
             },
 
+            {   // JADE Loader
+                test: /\.jade$/, 
+                loader: 'jade'
+            },
+
             {   // CSS Loader
                 test: /\.css$/,  
                 loader: ExtractTextPlugin.extract("style-loader", "css-loader") 
@@ -59,6 +67,19 @@ module.exports =
         ]
     },
 
+    // Setting up resolution
+    resolve: {
+        alias: {
+            'app': 'ampersand-app'
+        },
+
+        modulesDirectories: [
+            'node_modules', 
+            'resources' 
+        ]
+    },
+
+    // Set up plugins
     plugins: [
         // Environment globals
         new webpack.DefinePlugin({

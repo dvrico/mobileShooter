@@ -79,7 +79,7 @@ echo
 # Verify local dependencies installation
 printf "${BLUE}Verifying local development dependencies...${NOCOLOR}\n"
 
-# Check for npm installation status
+## Check for npm installation status
 _install=$(npm install)|tr '\n' ' '
 if [[ $_install != "" ]]
 then
@@ -96,6 +96,19 @@ printf >&2 "${GREEN}- Local dependencies installed successfully ${NOCOLOR}\n\n";
 
 echo "----------------------------------"
 echo
+
+
+# # Verify local dependencies installation
+# printf "${BLUE}Configuring environment...${NOCOLOR}\n"
+
+# ## Configure symlinks
+# printf >&2 "${YELLOW}- Setting up requirement symlinks... ${NOCOLOR}\n\n"; 
+# ln -s ../resources/templates/ node_modules/
+# ln -s ../resources/styles/ node_modules/
+
+# echo "----------------------------------"
+# echo
+
 
 # YAY!!!
 
