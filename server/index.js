@@ -32,4 +32,7 @@ proxy.on('error', function(e) {
 // And run the server
 app.listen(process.env.PORT || 3000, function () {
   console.log('Server running on port ' + (process.env.PORT || 3000));
+
+  // If in development ENV, launch local server in browser
+  if (!isProd) require('child_process').spawn('open', ['http://localhost:3000']);
 });
